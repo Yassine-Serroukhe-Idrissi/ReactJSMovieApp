@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from "react";
+import { api_key } from "./api_key";
 import './Movie.css';
 
 export default function Details({movie}){
@@ -9,7 +10,7 @@ export default function Details({movie}){
 
     const fetchDetail = async () =>{
     const id = movie.id
-    const url = "https://api.themoviedb.org/3/movie/"+id+"?api_key=d3f533569e4685f6cd79f8c0a2e8c234"
+    const url = "https://api.themoviedb.org/3/movie/"+id+"?api_key="+api_key
     const data = await fetch(url)
     const details = await data.json();
     console.log(details["genres"]);
