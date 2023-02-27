@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from "react";
-import Movies from './Movies';
 import { api_key } from "./api_key";
+import Card from 'react-bootstrap/Card';
+import {Row,Col } from "react-bootstrap";
+import { Link} from "react-router-dom";
 
 
 export default function Popular() {
@@ -16,11 +18,27 @@ export default function Popular() {
   }
 
   return(
-    <div>
-        {popular.map((movie)=>{
-        return <Movies key={movie.id} movie={movie}/>
+    <Row xs={1} md={4} className="g-4">
+      {popular.map((movie)=>{
+        return(
+          <Col>
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={"http://image.tmdb.org/t/p/w500/"+ movie.backdrop_path} />
+              <Card.Body>
+                <Link to={`../movie/details/${movie.id}`}> 
+                  <Card.Title>{movie.title}</Card.Title>
+                </Link>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        )
       })}
-    </div>
+    </Row>
+        
   )
 
 }
