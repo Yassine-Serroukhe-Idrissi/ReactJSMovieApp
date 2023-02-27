@@ -1,20 +1,23 @@
-import React,{useState} from "react";
-import './Movie.css'
+import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 
 
 export default function Movies({movie}){
-    const [detail,setDetail] = useState(false);
-    const handleClick = () => {
+    /*const [detail,setDetail] = useState(false);
+     const handleClick = () => {
         setDetail(!detail)
-    }
+    } */
+    
 
     return(
-        <div className="row">
-            <div className="column">
+        <div>
+            <div>
                 <center>
+                    <Link to={`../movie/details/${movie.id}`}> 
+                        <img src={"http://image.tmdb.org/t/p/w500/"+ movie.poster_path} alt={movie.title}/>
+                    </Link>
                     <h1>{movie.title}</h1>
-                    <img src={"http://image.tmdb.org/t/p/w500/"+ movie.poster_path} alt={movie.title}/>
                 </center>
                 
             </div>
