@@ -1,7 +1,9 @@
 import React,{useEffect,useState} from "react";
 import { useParams } from "react-router-dom";
 import { api_key } from "./api_key";
-import styles from './Movie.module.css';
+import { Link} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+/* import styles from './Movie.module.css'; */
 
 export default function Details(){
     const [detail,setDetail] = useState([]);
@@ -22,20 +24,25 @@ export default function Details(){
   
   return(
     <div>
-        <div className={styles.column} >
-            <div className={styles.aligned}>
+        <div  >
+            <div >
                 <img src={"http://image.tmdb.org/t/p/w500/"+ detail["poster_path"]} alt={detail["original_title"]}/>
                 <div>
                     <center>
-                        <p className={styles.overview}>{detail["overview"]}</p>
+                        <p >{detail["overview"]}</p>
                     </center>
                     <center>
-                        <div className={styles.headerbudget}>
+                        <div >
                             <h3>Budget :&nbsp;</h3> {detail["budget"]}$
                         </div>
                     </center>
                     <h3>Genre</h3>
-                    {detail["genres"]?.map((g)=>{return(<li key={g.id}>{g.name}</li>)})}
+                    {detail["genres"]?.map((g)=>{return(
+                        <>
+                        <Button variant="outline-danger">{g.name}</Button>{' '}
+                        </>
+                    
+                    )})}
                 </div>
             </div>
             
@@ -51,6 +58,10 @@ export default function Details(){
                 })}
                 <h3>AvErage vote : {detail["vote_average"]}</h3>
                 <h3>Vote Count : {detail["vote_count"]}</h3>
+
+                <Link to={`../movie/similar/${id}`}> 
+                    <button>Similar</button>
+                  </Link>
         </div>
     </div>
     

@@ -8,6 +8,7 @@ export default function Home(){
             <>
                 <Layout/>
             </>
+            <h1>Welcome to my react app</h1>
             
         </div>
         

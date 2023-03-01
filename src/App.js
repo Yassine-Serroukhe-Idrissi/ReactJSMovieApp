@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import Home from './component/Home';
 import Popular from './component/Popular';
 import Details from './component/Details';
+import Similar from './component/Similar';
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='popular' element={<Popular/>}/>
         <Route path="movie/details/:id" element={<Details/>}/>
+        <Route path="movie/similar/:id" element={<Similar/>}/>
       </Routes>
     </BrowserRouter>
     
