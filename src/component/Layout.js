@@ -1,7 +1,8 @@
 import {Link } from "react-router-dom";
 import React from "react";
 import Navbar from "react-bootstrap/Navbar"
-import { Container,Nav } from "react-bootstrap";
+
+import { Container,Nav,Form,Button } from "react-bootstrap";
 
 export default function Layout(){
     return(
@@ -14,6 +15,15 @@ export default function Layout(){
                         <Nav.Link href="/popular">Popular</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
+                <Form className="d-flex">
+                    <Form.Control
+                        type="search"
+                        placeholder="Search"
+                        className="me-2"
+                        aria-label="Search"
+                    />
+                    <Button variant="outline-success">Search</Button>
+                </Form>
             </Container>
         </Navbar>
     )
